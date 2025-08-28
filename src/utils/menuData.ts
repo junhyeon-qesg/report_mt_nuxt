@@ -11,19 +11,19 @@ const menuData: MenuItem[] = [
     route: '/dashboard',
   },
   {
-    label: '지표 가이드 관리',
+    label: '지표 - Handsontable',
     icon: 'ion:book-outline',
-    route: '/code-guide',
+    route: '/code-guide1',
+  },
+  {
+    label: '지표 - SpreadJS',
+    icon: 'ion:book-outline',
+    route: '/code-guide2',
   },
   {
     label: '데이터 시트 관리',
     icon: 'ion:grid-outline',
     route: '/data-sheet',
-  },
-  {
-    label: 'Sample Page',
-    icon: 'ion:document-outline',
-    route: '/sample',
   },
 ];
 

@@ -1,11 +1,10 @@
 <script setup lang="ts">
 defineOptions({
-  name: 'CodeGuide',
+  name: 'CodeGuideSpreadjs',
 });
 </script>
 
 <template>
   <div>
-    <h1>지표 가이드 관리</h1>
   </div>
 </template>

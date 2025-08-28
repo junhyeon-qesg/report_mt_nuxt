@@ -28,6 +28,7 @@
     "dayjs": "^1.11.14",
     "eslint": "^9.34.0",
     "handsontable": "^16.0.1",
+    "hyperformula": "^3.0.1",
     "nuxt": "^4.0.3",
     "pinia": "^3.0.3",
     "vue": "^3.5.20",
