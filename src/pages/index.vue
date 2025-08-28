@@ -1,11 +1,7 @@
 <script setup lang="ts">
-defineOptions({
-  name: 'Dashboard',
-});
+useRouter().replace('/dashboard');
 </script>
 
 <template>
-  <div>
-    <h1>Dashboard</h1>
-  </div>
+  <div />
 </template>

@@ -15,6 +15,10 @@ const selectedMenu = ref<string>('');
 const route = useRoute();
 selectedMenu.value = '/' + `${route.path.split('/')[1]}` || 'dashboard';
 
+watch(() => route.path, (newPath) => {
+  selectedMenu.value = '/' + `${newPath.split('/')[1]}` || 'dashboard';
+});
+
 function renderIcon(name: string, className: string) {
   return () => h(Icon, { name: name, class: className });
 }

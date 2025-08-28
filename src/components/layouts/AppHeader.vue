@@ -22,6 +22,7 @@ const options = [
 ];
 
 const menuTitle = computed(() => {
+  console.log(menuData.find(item => route.path.includes(item.route)));
   return menuData.find(item => route.path.includes(item.route))?.label || 'Dashboard';
 });
 
@@ -37,15 +38,15 @@ function logout() {
 </script>
 
 <template>
-  <div class="header header--fixed-height header__content--padding"
+  <div class="header"
        :class="{ 'header--collapsed': menuCollapsed }"
   >
     <div>
-      <h2 class="page-title">
+      <h2 class="header__title">
         {{ menuTitle }}
       </h2>
     </div>
-    <div class="flex gap-2">
+    <div class="header__action flex gap-2">
       <n-avatar round
                 size="small"
                 src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"

@@ -1,0 +1,37 @@
+.lnb {
+  height: 100dvh;
+  border-right: 1px solid rgba(255, 255, 255, 0.09);
+
+  .lnb__divider {
+    margin-bottom: 0 !important;
+  }
+
+  .lnb__logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 64px;
+    gap: 0.5rem;
+    margin: 20px 0;
+  }
+
+  .lnb__logo-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: unset;
+  }
+
+  .lnb__menu {
+    height: calc(100dvh - 110px);
+  }
+
+  .lnb__logo-wrapper--collapsed {
+    .lnb__logo-text {
+      display: none;
+    }
+  }
+}
+
+.sider__content--padding {
+  padding: 24px;
+}

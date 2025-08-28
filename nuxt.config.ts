@@ -16,7 +16,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: [
     '~/assets/css/tailwind.css',
-    '~/assets/scss/index.scss',
+    '~/assets/scss/main.scss',
   ],
   vue: {
     propsDestructure: true,

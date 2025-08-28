@@ -8,7 +8,7 @@ const menuData: MenuItem[] = [
   {
     label: '대시보드',
     icon: 'ion:home-outline',
-    route: '/',
+    route: '/dashboard',
   },
   {
     label: '지표 가이드 관리',

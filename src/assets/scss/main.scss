@@ -1,6 +1,14 @@
-@use './layout.scss';
-@use './form.scss';
-@use './page.scss';
+@use "base/base";
+
+@use "layout/app-layout";
+@use "layout/header";
+@use "layout/lnb";
+@use "layout/footer";
+
+@use "components/search-filter";
+@use "components/data-list";
+@use "components/detail";
+
 h1 {
   font-size: 1.75rem;
   font-weight: bold;
