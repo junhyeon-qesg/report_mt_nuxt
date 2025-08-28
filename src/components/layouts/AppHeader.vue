@@ -3,7 +3,6 @@ import { computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import menuData from '~/utils/menuData';
 import useConfigStore from '~/stores/configStore';
-import { NAvatar, NDropdown, NButton } from 'naive-ui';
 
 defineOptions({
   name: 'AppHeader',

@@ -88,8 +88,6 @@ table.htCore tr.odd td {
 
 .handsontable {
   font-size: 13px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Helvetica Neue", Arial, sans-serif;
   font-weight: 400;
 }
 

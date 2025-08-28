@@ -5,7 +5,6 @@ import { RouterLink } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import { Icon } from '#components';
 import useConfigStore from '~/stores/configStore';
-import { NDivider, NLayoutSider, NMenu } from 'naive-ui';
 
 const configStore = useConfigStore();
 const { menuCollapsed } = storeToRefs(configStore);

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import SpreadJSEditor from './_subs/SpreadJSEditor.vue';
+
 defineOptions({
   name: 'CodeGuideSpreadjs',
 });
@@ -6,5 +8,6 @@ defineOptions({
 
 <template>
   <div>
+    <SpreadJSEditor />
   </div>
 </template>

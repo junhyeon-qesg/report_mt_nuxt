@@ -1,5 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import type { NuxtPage } from 'nuxt/schema';
+// Auto import Naive UI components only
+import Components from 'unplugin-vue-components/vite';
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
 
 export default defineNuxtConfig({
   modules: [
@@ -23,6 +26,13 @@ export default defineNuxtConfig({
   srcDir: 'src/',
   compatibilityDate: '2025-07-15',
   vite: {
+    // register the Components plugin so only naive-ui components are auto-imported
+    plugins: [
+      Components({
+        dts: true,
+        resolvers: [NaiveUiResolver()],
+      }),
+    ],
     vue: {
       customElement: true,
     },

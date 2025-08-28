@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { NLayout, NLayoutContent } from 'naive-ui';
 import AppFooter from '~/components/layouts/AppFooter.vue';
 import AppNav from '~/components/layouts/AppHeader.vue';
 import LNB from '~/components/layouts/LNB.vue';
@@ -19,10 +18,9 @@ defineOptions({
       <n-layout-content>
         <main class="main-content">
           <slot />
+          <AppFooter />
         </main>
       </n-layout-content>
-
-      <AppFooter />
     </div>
   </n-layout>
 </template>
