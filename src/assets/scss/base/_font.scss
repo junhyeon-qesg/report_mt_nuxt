@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'Noto Sans KR Variable';
+  unicode-range: U+0041-005A, U+0061-007A;
+  /* 영문 대소문자 */
+}
+
+@font-face {
+  font-family: 'Noto Sans KR Variable';
+  unicode-range: U+AC00-D7A3, U+1100-11FF, U+3131-318F;
+  /* 한글 */
+}
+
+@font-face {
+  font-family: 'Noto Sans KR Variable';
+  unicode-range: U+0030-0039;
+  /* 숫자 */
+}
+
+@font-face {
+  font-family: 'Noto Sans SC Variable';
+  unicode-range: U+4E00-9FFF, U+F900-FAFF, U+3400-4DBF, U+20000-2A6DF, U+2A700-2B73F, U+2B740-2B81F, U+2B820-2CEAF;
+  /* 중국어 간체 */
+}
+
+@font-face {
+  font-family: 'Noto Sans TC Variable';
+  unicode-range: U+4E00-9FFF, U+F900-FAFF, U+3400-4DBF, U+20000-2A6DF, U+2A700-2B73F, U+2B740-2B81F, U+2B820-2CEAF;
+  /* 중국어 번체 */
+}

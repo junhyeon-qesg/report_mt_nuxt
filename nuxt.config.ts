@@ -4,7 +4,6 @@ import type { NuxtPage } from 'nuxt/schema';
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
-    '@nuxt/fonts',
     '@nuxt/icon',
     '@nuxt/image',
     '@nuxt/test-utils',
