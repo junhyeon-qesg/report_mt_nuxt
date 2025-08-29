@@ -3,6 +3,7 @@ import type { NuxtPage } from 'nuxt/schema';
 // Auto import Naive UI components only
 import Components from 'unplugin-vue-components/vite';
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
+import { generateTailwindColorThemes } from '@bg-dev/nuxt-naiveui/utils';
 
 export default defineNuxtConfig({
   modules: [
@@ -13,6 +14,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
+    '@bg-dev/nuxt-naiveui',
   ],
   ssr: false,
   devtools: { enabled: true },
@@ -68,6 +70,11 @@ export default defineNuxtConfig({
         semi: true,
         quotes: 'single',
       },
+    },
+  },
+  naiveui: {
+    themeConfig: {
+      ...generateTailwindColorThemes(),
     },
   },
 });

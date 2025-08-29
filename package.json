@@ -12,10 +12,14 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@bg-dev/nuxt-naiveui": "^2.0.0-rc.5",
     "@fontsource-variable/noto-sans-kr": "^5.2.5",
     "@fontsource-variable/noto-sans-sc": "^5.2.5",
     "@fontsource-variable/noto-sans-tc": "^5.2.5",
     "@handsontable/vue3": "^16.0.1",
+    "@jspreadsheet/bar": "^6.1.0",
+    "@jspreadsheet/parser": "^5.8.9",
+    "@jspreadsheet/vue": "^11.25.1",
     "@mescius/spread-excelio": "^18.2.1",
     "@mescius/spread-sheets": "18.2.0",
     "@mescius/spread-sheets-barcode": "18.2.0",

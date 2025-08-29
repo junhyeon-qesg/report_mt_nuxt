@@ -21,6 +21,7 @@ import { saveAs } from 'file-saver';
 defineOptions({
   name: 'SpreadJSEditor',
 });
+
 const excelIO = new ExcelIO.IO();
 
 const config = ref(GCDesigner.Spread.Sheets.Designer.DefaultConfig);
@@ -105,11 +106,29 @@ function saveXlsx() {
                             :spread-options="spreadOptions"
                             @designer-initialized="designerInitialized"
     />
+    <div id="log" style="margin-top: 10px; font-weight: bold;" />
   </div>
 </template>
 
 <style>
 .ribbon-button-welcome {
     background-image: url('./assets/welcome.png');
+}
+</style>
+
+<style>
+/* 버튼에 간단한 스타일 추가 */
+.custom-btn {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
 }
 </style>
