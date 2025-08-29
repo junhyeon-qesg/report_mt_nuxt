@@ -129,22 +129,5 @@ const majorDetail = useMajorDetailStore();
         </template>
       </template>
     </n-descriptions-item>
-    <n-descriptions-item>
-      <template #label>
-        수정일자
-      </template>
-      <template #default>
-        <template v-if="majorDetail.isLoading">
-          <n-skeleton
-            :style="detailSkeletonStyle"
-          />
-        </template>
-        <template v-else>
-          <div class="detail-item">
-            {{ majorDetail.getDateFormat(majorDetail.detailData?.updatedAt) }}
-          </div>
-        </template>
-      </template>
-    </n-descriptions-item>
   </n-descriptions>
 </template>
