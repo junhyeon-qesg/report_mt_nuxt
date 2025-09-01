@@ -153,16 +153,21 @@ const groupColumns: DataTableColumns<any> = [
   },
 ];
 
-const scopeColumns = [
-  { title: 'Code', key: 'code' },
-  { title: '데이터명', key: 'name' },
-  { title: '본사', key: 'hq' },
-  { title: 'A사업장', key: 'plant_a' },
-  { title: 'B사업장', key: 'plant_b' },
-];
-const scopeData = [
-  { code: 'C-001', name: 'LNG 사용량', hq: true, plant_a: true, plant_b: false },
-  { code: 'E-001', name: '총 전력 사용량', hq: true, plant_a: true, plant_b: true },
+// --- Business Unit Scope ---
+const scopeData = computed(() =>
+  hotData.value.map(item => ({
+    code: item.code,
+    name: item.name,
+    hq: true, // dummy data
+    plant_a: false, // dummy data
+  })),
+);
+
+const scopeColumns: DataTableColumns<any> = [
+  { title: 'Code', key: 'code', width: 100, ellipsis: { tooltip: true } },
+  { title: '데이터명', key: 'name', ellipsis: { tooltip: true } },
+  { title: '본사', key: 'hq', align: 'center' },
+  { title: 'A사업장', key: 'plant_a', align: 'center' },
 ];
 </script>
 
@@ -240,17 +245,46 @@ const scopeData = [
 
       <NTabPane v-if="isEditMode" name="scope-edit" tab="사업장 범위 편집">
         <NCard title="사업장 범위 설정">
-          <NAlert type="warning" title="구현 예정">
-            지표 템플릿 저장 후 편집 가능합니다. "사업장 추가" 버튼으로 컬럼을 동적으로 생성하고, 각 지표(Row)가 어느 사업장에 해당되는지 체크박스로 설정합니다.
-          </NAlert>
-          <NDataTable :columns="scopeColumns"
-                      :data="scopeData"
-                      :bordered="true"
-                      class="mt-4"
-          />
-          <NButton class="mt-4">
-            사업장 추가
-          </NButton>
+          <template #header-extra>
+            <NButton>사업장 추가</NButton>
+          </template>
+          <HotTable :data="hotData"
+                    :nested-headers="nestedHeaders"
+                    :manual-row-move="true"
+                    :manual-column-resize="true"
+                    :row-headers="true"
+                    col-headers=" "
+                    height="500"
+                    width="100%"
+                    license-key="non-commercial-and-evaluation"
+          >
+            <HotColumn data="code" title="Code" />
+            <HotColumn data="guide_l" title="대분류" />
+            <HotColumn data="guide_m" title="중분류" />
+            <HotColumn data="guide_s" title="소분류" />
+            <HotColumn data="name" title="데이터명" />
+            <HotColumn data="criteria" title="데이터 작성 기준" />
+            <HotColumn data="unit"
+                       title="단위"
+                       type="dropdown"
+                       :source="['m3', 'L', 'kWh', 'tCO2eq', 'g']"
+            />
+            <HotColumn data="dataType"
+                       title="데이터 유형"
+                       type="dropdown"
+                       :source="['number', 'string', 'function']"
+            />
+            <HotColumn data="fy2023" title="FY 2023" type="numeric" />
+            <HotColumn data="fy2022" title="FY 2022" type="numeric" />
+            <HotColumn data="fy2021" title="FY 2021" type="numeric" />
+            <HotColumn data="placeholder" title="Placeholder" />
+            <HotColumn data="notes" title="비고" />
+            <HotColumn data="upload"
+                       title="증빙 파일 업로드"
+                       type="checkbox"
+                       class-name="htCenter"
+            />
+          </HotTable>
         </NCard>
       </NTabPane>
 
