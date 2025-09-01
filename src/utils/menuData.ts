@@ -23,8 +23,13 @@ const menuData: MenuItem[] = [
   },
   {
     label: '데이터 시트',
-    icon: 'ion:grid-outline',
+    icon: 'ion:document-attach',
     route: '/data-sheet',
+  },
+  {
+    label: '데이터 시트 관리',
+    icon: 'ion:grid-outline',
+    route: '/data-sheet-manage',
   },
   {
     label: '데이터 관리',
