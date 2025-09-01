@@ -21,6 +21,7 @@ import {
   NTree,
 } from 'naive-ui';
 import type { DataTableColumns, TreeOption } from 'naive-ui';
+import AccessControl from '@/components/pages/code-template/_subs/AccessControl.vue';
 
 // Handsontable 모듈 등록
 registerAllModules();
@@ -289,19 +290,7 @@ const scopeColumns: DataTableColumns<any> = [
       </NTabPane>
 
       <NTabPane v-if="isEditMode" name="access-control" tab="접근 권한 편집">
-        <NCard title="사용자 접근 권한 설정">
-          <NAlert type="warning" title="구현 예정">
-            사용자를 초대하고 권한을 부여하는 화면입니다. 생성된 권한 목록에 사용자를 드래그 앤 드롭하여 권한을 지정하는 UI가 제공됩니다.
-          </NAlert>
-          <div class="mt-4 p-4 border rounded">
-            <p class="font-bold">
-              권한 지정 UI (예시)
-            </p>
-            <p class="text-gray-500">
-              [사용자 목록] <=> [권한 그룹 (관리자, 편집자, 뷰어)]
-            </p>
-          </div>
-        </NCard>
+        <AccessControl />
       </NTabPane>
 
       <NTabPane v-if="isEditMode" name="preview" tab="미리보기">
