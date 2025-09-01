@@ -22,10 +22,12 @@ onMounted(async () => {
   const result = await $fetch('/sample.xlsx', {
     method: 'get',
     responseType: 'blob',
-  });
+  }) as Blob;
   console.log(spreadSheet.value);
 
   const blob = new Blob([result], { type: result.type });
+
+  console.log(blob);
 
   jspreadsheet.parser({
     file: blob,
@@ -33,6 +35,8 @@ onMounted(async () => {
       // You can intercept the configuration and add JavaScript events
       config.afterChanges = afterChanges;
       // Create the spreadsheet
+
+      console.log(config);
       jspreadsheet(spreadSheet.value, config);
     },
   });

@@ -1,11 +1,11 @@
 <script setup lang="ts">
 defineOptions({
-  name: 'DataSheet',
+  name: 'DataManage',
 });
 </script>
 
 <template>
   <div>
-    <h1>데이터 시트 관리</h1>
+    <h1>데이터 관리</h1>
   </div>
 </template>

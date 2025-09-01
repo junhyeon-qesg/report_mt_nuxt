@@ -1,10 +1,12 @@
 <script lang="ts" setup>
 import type { MenuOption } from 'naive-ui';
-import { h, ref } from 'vue';
+import { h, ref, computed } from 'vue';
 import { RouterLink } from 'vue-router';
+import type { RouterLinkProps, RouteLocationRaw } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import { Icon } from '#components';
 import useConfigStore from '~/stores/configStore';
+import menuData from '~/utils/menuData';
 
 const configStore = useConfigStore();
 const { menuCollapsed } = storeToRefs(configStore);
@@ -22,13 +24,36 @@ function renderIcon(name: string, className: string) {
   return () => h(Icon, { name: name, class: className });
 }
 
-const menuOptions: MenuOption[] = menuData.map((item) => {
-  return {
-    label: () => h(RouterLink, { to: item.route, class: 'ml-2' }, { default: () => item.label }),
-    key: item.route,
+type AppMenuItem = (typeof menuData)[number];
+
+function toMenuOption(item: AppMenuItem): MenuOption {
+  const hasRoute = typeof item.route === 'string' && item.route.length > 0;
+  const option: MenuOption = {
+    label: hasRoute
+      ? () => {
+          const props: RouterLinkProps & { class: string } = {
+            to: (item.route as RouteLocationRaw),
+            class: 'ml-2',
+          };
+          return h(
+            RouterLink,
+            props,
+            { default: () => item.label },
+          );
+        }
+      : item.label,
+    key: hasRoute ? (item.route as string) : item.label,
     icon: renderIcon(item.icon, 'text-2xl'),
   };
-});
+
+  if (item.children && item.children.length) {
+    option.children = item.children.map(toMenuOption);
+  }
+
+  return option;
+}
+
+const menuOptions = computed<MenuOption[]>(() => menuData.map(toMenuOption));
 </script>
 
 <template>

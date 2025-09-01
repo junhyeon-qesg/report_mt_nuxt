@@ -1,11 +1,11 @@
 <script setup lang="ts">
 defineOptions({
-  name: 'Dashboard',
+  name: 'HistoryManage',
 });
 </script>
 
 <template>
   <div>
-    <h1>대시보드</h1>
+    <h1>히스토리</h1>
   </div>
 </template>
