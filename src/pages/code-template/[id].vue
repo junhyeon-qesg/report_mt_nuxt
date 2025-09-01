@@ -21,7 +21,7 @@ import {
   NTree,
 } from 'naive-ui';
 import type { DataTableColumns, TreeOption } from 'naive-ui';
-import AccessControl from '@/components/pages/code-template/_subs/AccessControl.vue';
+import AccessControl from '~/pages/code-template/_subs/AccessControl.vue';
 
 // Handsontable 모듈 등록
 registerAllModules();
