@@ -61,6 +61,11 @@ const menuData: MenuItem[] = [
         route: '/code-guide3',
       },
       {
+        label: 'Tabulator',
+        icon: 'ion:book-outline',
+        route: '/tabulator',
+      },
+      {
         label: '사용자 - CRUD 샘플',
         icon: 'ion:people-outline',
         route: '/user',
