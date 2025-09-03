@@ -1,0 +1,18 @@
+// input_type 데이터 별도로 관리
+[
+  {
+    "column_id": "ca7f02a0-e37c-4617-9b3a-9f8df480e93e",
+    "type": "template",
+    "data_input_id": "8f9e7d20-1f7c-4411-9cf2-3fd3025e179d"
+  },
+  {
+    "column_id": "6719eae2-09f1-4faf-a30c-573e354b1d73",
+    "type": "template",
+    "data_input_id": "8f9e7d20-1f7c-4411-9cf2-3fd3025e179d"
+  },
+  {
+    "column_id": "29b90116-d6e4-473e-96ae-c1b28d2d8afb",
+    "type": "template",
+    "data_input_id": "8f9e7d20-1f7c-4411-9cf2-3fd3025e179d"
+  }
+]

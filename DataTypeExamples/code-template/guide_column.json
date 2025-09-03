@@ -1,0 +1,52 @@
+[
+  {
+    "id": "ca7f02a0-e37c-4617-9b3a-9f8df480e93e",
+    "label": {
+      "ko": "대분류",
+      "en": "Category",
+      "zh": "类别",
+      "ja": "カテゴリー"
+    },
+    "order": 1
+  },
+  {
+    "id": "6719eae2-09f1-4faf-a30c-573e354b1d73",
+    "label": {
+      "ko": "중분류",
+      "en": "Subcategory",
+      "zh": "子类别",
+      "ja": "サブカテゴリー"
+    },
+    "order": 2
+  },
+  {
+    "id": "29b90116-d6e4-473e-96ae-c1b28d2d8afb",
+    "label": {
+      "ko": "소분류",
+      "en": "Detail Category",
+      "zh": "明细类别",
+      "ja": "詳細カテゴリー"
+    },
+    "order": 3
+  },
+  {
+    "id": "a17bc696-f96f-4d91-8db2-8f03e9f8362f",
+    "label": {
+      "ko": "데이터명",
+      "en": "Data Name",
+      "zh": "数据名称",
+      "ja": "データ名"
+    },
+    "order": 4
+  },
+  {
+    "id": "b01a870e-a0da-4e44-a0ed-4a9c071db817",
+    "label": {
+      "ko": "데이터 작성 기준",
+      "en": "Data Writing Standards",
+      "zh": "数据编写标准",
+      "ja": "データ作成基準"
+    },
+    "order": 4
+  }
+],

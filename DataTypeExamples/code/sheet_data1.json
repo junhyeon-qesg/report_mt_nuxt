@@ -1,0 +1,149 @@
+[
+  {
+    "column_id": "ca7f02a0-e37c-4617-9b3a-9f8df480e93e",
+    "type": "manual",
+    "data_input_opts": {
+      "form_type": "input_number", // input_number, input_text, select_box, multiple_select, date_picker, toggle, slider, cascader_select
+      "precision": 2,
+      "validator": { // 타입 변경하면 validator 초기화
+        "min": 0,
+        "max": 1000,
+        "required": true,
+        "custom": {
+          "message": "Please enter a valid number",
+          "regex": "(value) => /^\\d+(\\.\\d{1,2})?$/.test(value)"
+        }
+      }
+    }
+  },
+  {
+    "column_id": "6719eae2-09f1-4faf-a30c-573e354b1d73",
+    "type": "manual",
+    "data_input_opts": {
+      "form_type": "input_number",
+      "validator": {
+        "min": 0,
+        "max": 1000,
+        "required": true,
+        "custom": {
+          "message": "Please enter a valid number",
+          "regex": "(value) => /^\\d+(\\.\\d{1,2})?$/.test(value)"
+        }
+      }
+    }
+  },
+  {
+    "column_id": "29b90116-d6e4-473e-96ae-c1b28d2d8afb",
+    "type": "manual",
+    "data_input_opts": {
+      "form_type": "input_number",
+      "validator": {
+        "min": 0,
+        "max": 1000,
+        "required": true,
+        "custom": {
+          "message": "Please enter a valid number",
+          "regex": "(value) => /^\\d+(\\.\\d{1,2})?$/.test(value)"
+        }
+      }
+    }
+  },
+  {
+    "column_id": "29b90116-d6e4-473e-96ae-c1b28d2d8afb",
+    "type": "manual",
+    "data_input_opts": {
+      "form_type": "select_box",
+      "options": [
+        {
+          "label": {
+            "ko": "대한민국",
+            "en": "South Korea",
+            "zh": "韩国",
+            "ja": "韓国"
+          },
+          "value": "KR"
+        },
+        {
+          "label": {
+            "ko": "미국",
+            "en": "United States",
+            "zh": "美国",
+            "ja": "アメリカ"
+          },
+          "value": "US"
+        },
+        {
+          "label": {
+            "ko": "중국",
+            "en": "China",
+            "zh": "中国",
+            "ja": "中国"
+          },
+          "value": "CN"
+        },
+        {
+          "label": {
+            "ko": "일본",
+            "en": "Japan",
+            "zh": "日本",
+            "ja": "日本"
+          },
+          "value": "JP"
+        }
+      ],
+      "validator": { // 타입 변경하면 validator 초기화
+        "required": true
+      }
+    }
+  },
+  {
+    "column_id": "b01a870e-a0da-4e44-a0ed-4a9c071db817",
+    "type": "manual",
+    "data_input_opts": {
+      "form_type": "cascader",
+      "options": [
+        {
+          "label": {
+            "ko": "1차 카테고리",
+            "en": "Primary Category",
+            "zh": "一级类别",
+            "ja": "一次カテゴリー"
+          },
+          "children": [
+            {
+              "label": {
+                "ko": "2차 카테고리",
+                "en": "Secondary Category",
+                "zh": "二级类别",
+                "ja": "二次カテゴリー"
+              },
+              "children": [
+                {
+                  "label": {
+                    "ko": "3차 카테고리1",
+                    "en": "Tertiary Category",
+                    "zh": "三级类别",
+                    "ja": "三次カテゴリー"
+                  },
+                  "value": "value-1-1-1"
+                },
+                {
+                  "label": {
+                    "ko": "3차 카테고리2",
+                    "en": "Tertiary Category",
+                    "zh": "三级类别",
+                    "ja": "三次カテゴリー"
+                  },
+                  "value": "value-1-1-2"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "validator": { // 타입 변경하면 validator 초기화
+        "required": true
+      }
+    }
+  }
+]

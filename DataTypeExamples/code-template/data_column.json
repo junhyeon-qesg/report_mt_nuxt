@@ -1,0 +1,52 @@
+[
+  {
+    "id": "ca7f02a0-e37c-4617-9b3a-9f8df480e93e",
+    "label": {
+      "ko": "FY2022",
+      "en": "FY2022",
+      "zh": "FY2022",
+      "ja": "FY2022"
+    },
+    "order": 1
+  },
+  {
+    "id": "6719eae2-09f1-4faf-a30c-573e354b1d73",
+    "label": {
+      "ko": "FY2023",
+      "en": "FY2023",
+      "zh": "FY2023",
+      "ja": "FY2023"
+    },
+    "order": 2
+  },
+  {
+    "id": "29b90116-d6e4-473e-96ae-c1b28d2d8afb",
+    "label": {
+      "ko": "FY2024",
+      "en": "FY2024",
+      "zh": "FY2024",
+      "ja": "FY2024"
+    },
+    "order": 3
+  },
+  {
+    "id": "a17bc696-f96f-4d91-8db2-8f03e9f8362f",
+    "label": {
+      "ko": "국가",
+      "en": "Country",
+      "zh": "国家",
+      "ja": "国"
+    },
+    "order": 4
+  },
+  {
+    "id": "b01a870e-a0da-4e44-a0ed-4a9c071db817",
+    "label": {
+      "ko": "카테고리",
+      "en": "Category",
+      "zh": "类别",
+      "ja": "カテゴリー"
+    },
+    "order": 5
+  }
+]
