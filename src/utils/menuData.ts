@@ -61,9 +61,9 @@ const menuData: MenuItem[] = [
         route: '/code-guide3',
       },
       {
-        label: '사용자 - CRUD 샘플',
+        label: '지표 - AG-grid',
         icon: 'ion:people-outline',
-        route: '/user',
+        route: '/code-guide4',
       },
     ],
   },

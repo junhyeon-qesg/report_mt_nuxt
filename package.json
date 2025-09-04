@@ -46,6 +46,8 @@
     "@pinia/nuxt": "^0.11.2",
     "@vicons/ionicons5": "^0.13.0",
     "@vueuse/nuxt": "^13.8.0",
+    "ag-grid-enterprise": "^34.1.2",
+    "ag-grid-vue3": "^34.1.2",
     "chart.js": "^4.5.0",
     "dayjs": "^1.11.14",
     "eslint": "^9.34.0",

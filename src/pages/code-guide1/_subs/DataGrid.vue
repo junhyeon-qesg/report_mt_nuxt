@@ -1,139 +1,19 @@
-<script setup lang="ts">
-import { HotTable, HotColumn } from '@handsontable/vue3';
-import { registerAllModules } from 'handsontable/registry';
-import 'handsontable/styles/handsontable.min.css';
-import 'handsontable/styles/ht-theme-main.min.css';
-
-// Handsontable 모듈 등록
-registerAllModules();
-
-// React 예제의 defaultData 대체 샘플 데이터
-const defaultData = [
-  {
-    name: 'Alice Johnson',
-    age: 29,
-    country: 'USA',
-    city: 'New York',
-    isActive: true,
-    interest: 'Tech Gadgets',
-    favoriteProduct: 'Smartwatch X',
-    lastLoginDate: 'Jan 10, 2025',
-    lastLoginTime: '09:30',
-  },
-  {
-    name: 'Bruno Schmidt',
-    age: 41,
-    country: 'Germany',
-    city: 'Walldorf',
-    isActive: false,
-    interest: 'Travel & Adventure',
-    favoriteProduct: 'Hiking Backpack',
-    lastLoginDate: 'Aug 21, 2024',
-    lastLoginTime: '17:05',
-  },
-  {
-    name: 'Choi Minseo',
-    age: 33,
-    country: 'South Korea',
-    city: 'Seoul',
-    isActive: true,
-    interest: 'Electronics',
-    favoriteProduct: 'Noise-cancelling Headphones',
-    lastLoginDate: 'Jul 02, 2025',
-    lastLoginTime: '11:45',
-  },
-  {
-    name: 'Diego Martinez',
-    age: 27,
-    country: 'Mexico',
-    city: 'Mexico City',
-    isActive: true,
-    interest: 'Food & Cooking',
-    favoriteProduct: 'Cast Iron Skillet',
-    lastLoginDate: 'May 18, 2025',
-    lastLoginTime: '08:20',
-  },
-  {
-    name: 'Emma Brown',
-    age: 36,
-    country: 'UK',
-    city: 'London',
-    isActive: false,
-    interest: 'Books & Literature',
-    favoriteProduct: 'E-reader Pro',
-    lastLoginDate: 'Nov 30, 2024',
-    lastLoginTime: '19:10',
-  },
-  {
-    name: 'Fiona Lee',
-    age: 31,
-    country: 'Canada',
-    city: 'Toronto',
-    isActive: true,
-    interest: 'Home Decor',
-    favoriteProduct: 'Minimalist Lamp',
-    lastLoginDate: 'Mar 08, 2025',
-    lastLoginTime: '13:55',
-  },
-  {
-    name: 'George Wang',
-    age: 45,
-    country: 'China',
-    city: 'Shenzhen',
-    isActive: false,
-    interest: 'Art & Collectibles',
-    favoriteProduct: 'Vintage Poster',
-    lastLoginDate: 'Sep 12, 2024',
-    lastLoginTime: '10:05',
-  },
-  {
-    name: 'Hannah Kim',
-    age: 24,
-    country: 'Australia',
-    city: 'Sydney',
-    isActive: true,
-    interest: 'Sports & Fitness',
-    favoriteProduct: 'Yoga Mat',
-    lastLoginDate: 'Aug 01, 2025',
-    lastLoginTime: '07:15',
-  },
-  {
-    name: 'Ivan Petrov',
-    age: 38,
-    country: 'France',
-    city: 'Lyon',
-    isActive: true,
-    interest: 'Fashion',
-    favoriteProduct: 'Leather Jacket',
-    lastLoginDate: 'Jan 15, 2025',
-    lastLoginTime: '21:30',
-  },
-  {
-    name: 'Julia Sato',
-    age: 28,
-    country: 'Japan',
-    city: 'Tokyo',
-    isActive: true,
-    interest: 'Beauty & Personal Care',
-    favoriteProduct: 'Skincare Set',
-    lastLoginDate: 'Feb 05, 2025',
-    lastLoginTime: '16:00',
-  },
-];
-</script>
-
 <template>
-  <div>
-    <HotTable theme-name="ht-theme-main"
+  <div class="w-full p-8 bg-[#050506] text-white">
+    <h1 class="text-3xl font-bold mb-6">Handsontable with Nuxt 3 & Nested Rows</h1>
+    <HotTable ref="hotTableRef"
+              theme-name="ht-theme-main"
               :data="defaultData"
               height="auto"
-              width="900px"
+              width="100%"
               license-key="non-commercial-and-evaluation"
+              :nestedRows="true"
               :nested-headers="[
                 [
                   { label: 'User', colspan: 4 },
                   { label: 'Account Details', colspan: 3 },
                   { label: 'Login information', colspan: 2 },
+                  { label: 'Actions', colspan: 1 }
                 ],
                 [
                   'Name',
@@ -145,22 +25,12 @@ const defaultData = [
                   'Favorite Product',
                   'Login date',
                   'Login time',
+                  'Action'
                 ],
               ]"
               :hidden-columns="{ indicators: true }"
               :hidden-rows="{ indicators: true }"
-              :context-menu="[
-                'cut',
-                'copy',
-                '---------',
-                'row_above',
-                'row_below',
-                'remove_row',
-                '---------',
-                'alignment',
-                'make_read_only',
-                'clear_column',
-              ]"
+              :context-menu="customContextMenu"
               header-class-name="htLeft"
               :col-headers="true"
               :collapsible-columns="true"
@@ -170,6 +40,7 @@ const defaultData = [
               :multi-column-sorting="true"
               :manual-column-resize="true"
               :manual-row-move="true"
+              :manual-column-move="true"
               :manual-row-resize="true"
               :auto-wrap-row="true"
               :row-headers="true"
@@ -180,20 +51,9 @@ const defaultData = [
       <HotColumn data="country"
                  type="autocomplete"
                  :source="[
-                   'Germany',
-                   'China',
-                   'France',
-                   'Netherlands',
-                   'Switzerland',
-                   'USA',
-                   'Canada',
-                   'UK',
-                   'Australia',
-                   'Spain',
-                   'Japan',
-                   'Brazil',
-                   'South Korea',
-                   'Mexico',
+                   'Germany', 'China', 'France', 'Netherlands', 'Switzerland', 'USA',
+                   'Canada', 'UK', 'Australia', 'Spain', 'Japan', 'Brazil',
+                   'South Korea', 'Mexico',
                  ]"
                  :strict="true"
                  :allow-invalid="true"
@@ -202,28 +62,10 @@ const defaultData = [
       <HotColumn data="city"
                  type="dropdown"
                  :source="[
-                   'Walldorf',
-                   'Shenzhen',
-                   'Lyon',
-                   'Amsterdam',
-                   'Zurich',
-                   'New York',
-                   'Toronto',
-                   'London',
-                   'Sydney',
-                   'Los Angeles',
-                   'Barcelona',
-                   'Tokyo',
-                   'Manchester',
-                   'Sao Paulo',
-                   'Miami',
-                   'Madrid',
-                   'Seoul',
-                   'Vancouver',
-                   'Valencia',
-                   'Chicago',
-                   'Mexico City',
-                   'Houston',
+                   'Walldorf', 'Shenzhen', 'Lyon', 'Amsterdam', 'Zurich', 'New York',
+                   'Toronto', 'London', 'Sydney', 'Los Angeles', 'Barcelona', 'Tokyo',
+                   'Manchester', 'Sao Paulo', 'Miami', 'Madrid', 'Seoul', 'Vancouver',
+                   'Valencia', 'Chicago', 'Mexico City', 'Houston',
                  ]"
                  :width="160"
       />
@@ -235,16 +77,9 @@ const defaultData = [
       <HotColumn data="interest"
                  type="dropdown"
                  :source="[
-                   'Electronics',
-                   'Fashion',
-                   'Tech Gadgets',
-                   'Home Decor',
-                   'Sports & Fitness',
-                   'Books & Literature',
-                   'Beauty & Personal Care',
-                   'Food & Cooking',
-                   'Travel & Adventure',
-                   'Art & Collectibles',
+                   'Electronics', 'Fashion', 'Tech Gadgets', 'Home Decor',
+                   'Sports & Fitness', 'Books & Literature', 'Beauty & Personal Care',
+                   'Food & Cooking', 'Travel & Adventure', 'Art & Collectibles',
                  ]"
                  :width="220"
       />
@@ -263,9 +98,220 @@ const defaultData = [
                  time-format="HH:mm"
                  :width="180"
       />
+      
+      <HotColumn
+        title="Action"
+        :width="120"
+        :read-only="true"
+        :renderer="buttonRenderer"
+      />
     </HotTable>
   </div>
 </template>
+
+<script setup lang="ts">
+import { ref, h, onUnmounted, createApp } from 'vue';
+import { HotTable, HotColumn } from '@handsontable/vue3';
+import { registerAllModules } from 'handsontable/registry';
+import 'handsontable/styles/handsontable.min.css';
+import 'handsontable/styles/ht-theme-main.min.css';
+import { NButton } from 'naive-ui'; // Naive UI 버튼 임포트
+
+// Handsontable 모듈 등록
+registerAllModules();
+
+const hotTableRef = ref<any>(null);
+
+// 중첩 행을 위한 데이터 구조 수정
+const defaultData = [
+ {
+    name: 'Alice Johnson',
+    age: 29,
+    country: 'USA',
+    city: 'New York',
+    isActive: true,
+    interest: 'Tech Gadgets',
+    favoriteProduct: 'Smartwatch X',
+    lastLoginDate: 'Jan 10, 2025',
+    lastLoginTime: '09:30',
+    __children: [
+        {
+            name: 'Diego Martinez',
+            age: 27,
+            country: 'Mexico',
+            city: 'Mexico City',
+            isActive: true,
+            interest: 'Food & Cooking',
+            favoriteProduct: 'Cast Iron Skillet',
+            lastLoginDate: 'May 18, 2025',
+            lastLoginTime: '08:20',
+        },
+        {
+            name: 'Emma Brown',
+            age: 36,
+            country: 'UK',
+            city: 'London',
+            isActive: false,
+            interest: 'Books & Literature',
+            favoriteProduct: 'E-reader Pro',
+            lastLoginDate: 'Nov 30, 2024',
+            lastLoginTime: '19:10',
+        }
+    ]
+ },
+ {
+    name: 'Bruno Schmidt',
+    age: 41,
+    country: 'Germany',
+    city: 'Walldorf',
+    isActive: false,
+    interest: 'Travel & Adventure',
+    favoriteProduct: 'Hiking Backpack',
+    lastLoginDate: 'Aug 21, 2024',
+    lastLoginTime: '17:05',
+    __children: [
+        {
+            name: 'Ivan Petrov',
+            age: 38,
+            country: 'France',
+            city: 'Lyon',
+            isActive: true,
+            interest: 'Fashion',
+            favoriteProduct: 'Leather Jacket',
+            lastLoginDate: 'Jan 15, 2025',
+            lastLoginTime: '21:30',
+        }
+    ]
+ },
+ {
+    name: 'Choi Minseo',
+    age: 33,
+    country: 'South Korea',
+    city: 'Seoul',
+    isActive: true,
+    interest: 'Electronics',
+    favoriteProduct: 'Noise-cancelling Headphones',
+    lastLoginDate: 'Jul 02, 2025',
+    lastLoginTime: '11:45',
+ },
+ {
+    name: 'Fiona Lee',
+    age: 31,
+    country: 'Canada',
+    city: 'Toronto',
+    isActive: true,
+    interest: 'Home Decor',
+    favoriteProduct: 'Minimalist Lamp',
+    lastLoginDate: 'Mar 08, 2025',
+    lastLoginTime: '13:55',
+ },
+ {
+    name: 'George Wang',
+    age: 45,
+    country: 'China',
+    city: 'Shenzhen',
+    isActive: false,
+    interest: 'Art & Collectibles',
+    favoriteProduct: 'Vintage Poster',
+    lastLoginDate: 'Sep 12, 2024',
+    lastLoginTime: '10:05',
+ },
+ {
+    name: 'Hannah Kim',
+    age: 24,
+    country: 'Australia',
+    city: 'Sydney',
+    isActive: true,
+    interest: 'Sports & Fitness',
+    favoriteProduct: 'Yoga Mat',
+    lastLoginDate: 'Aug 01, 2025',
+    lastLoginTime: '07:15',
+ },
+ {
+    name: 'Julia Sato',
+    age: 28,
+    country: 'Japan',
+    city: 'Tokyo',
+    isActive: true,
+    interest: 'Beauty & Personal Care',
+    favoriteProduct: 'Skincare Set',
+    lastLoginDate: 'Feb 05, 2025',
+    lastLoginTime: '16:00',
+ },
+];
+
+const mountedApps = new Map();
+
+
+const handleButtonClick = (row: number) => {
+    const hotInstance = hotTableRef.value?.hotInstance;
+    if (hotInstance) {
+        const rowDataObject = hotInstance.getSourceDataAtRow(row);
+        console.log(`Button in row ${row} clicked. Data:`, rowDataObject);
+        alert(`'${(rowDataObject as any).name}'의 정보를 확인했습니다. 콘솔을 보세요.`);
+    }
+};
+
+const buttonRenderer = (instance, TD, row, col) => {
+  if (mountedApps.has(TD)) {
+    mountedApps.get(TD).unmount();
+    mountedApps.delete(TD);
+  }
+
+  TD.innerHTML = '';
+
+  const app = createApp({
+    render() {
+      return h(
+        NButton,
+        {
+          type: 'primary',
+          size: 'small',
+          onClick: () => handleButtonClick(row),
+        },
+        { default: () => 'View Data' } 
+      );
+    },
+  });
+
+  app.mount(TD);
+
+  mountedApps.set(TD, app);
+};
+
+onUnmounted(() => {
+  mountedApps.forEach(app => app.unmount());
+  mountedApps.clear();
+});
+
+const customContextMenu = [
+  'row_above',
+  'row_below',
+  'remove_row',
+  '---------',
+  {
+    key: 'log_data', 
+    name: 'Log data to console', 
+    callback(key, selection, clickEvent) {
+      const { start, end } = selection[0];
+      const hotInstance = hotTableRef.value.hotInstance;
+
+      for (let row = start.row; row <= end.row; row++) {
+        for (let col = start.col; col <= end.col; col++) {
+          console.log(`(${row}, ${col}):`, hotInstance.getDataAtCell(row, col));
+        }
+      }
+    },
+  },
+  '---------',
+  'cut',
+  'copy',
+  '---------',
+  'alignment',
+  'make_read_only',
+  'clear_column',
+];
+</script>
 
 <style>
 /* React 예제의 커스텀 테마 변수 */
